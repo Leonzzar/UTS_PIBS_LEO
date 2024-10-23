@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Mahasiswa</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+    <header>
+        <img src="/img/Profile.jpeg" alt="Foto Profil" class="profile-img">
+        <h1>Profile Leonardo</h1>
+    </header>
+    
+    <main>
+
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showContent('biodata')">Biodata</a></li>
+                <li><a href="#" onclick="showContent('pendidikan')">Pendidikan</a></li>
+                <li><a href="#" onclick="showContent('pengalaman')">Pengalaman</a></li>
+                <li><a href="#" onclick="showContent('keahlian')">Keahlian</a></li>
+                <li><a href="#" onclick="showContent('publikasi')">Publikasi</a></li>
+            </ul>
+        </nav>
+        
+        <section class="content_1" id="content">
+            <div class="inside_content1" id="biodata">
+                <h2>Biodata</h2>
+                <p>NIM: 2023081052</p>
+                <p>Nama: Leonardo</p>
+                <p>Agama: Katolik</p>
+                <p>Tanggal Lahir: 10 Maret 2005</p>
+                <p>Tempat Lahir: Jakarta</p>
+            </div>
+              
+            <div class="inside_content1" id="pendidikan" style="display: none;">
+                <h2>Pendidikan</h2>
+                <h3>2017 - 2020 : SMP Negeri 19 Jakarta</h3>
+                <p>Di sini, saya mengembangkan minat dalam berbagai bidang ilmu pengetahuan. Saya aktif berpartisipasi dalam kegiatan ekstrakurikuler, seperti pramuka dan karya ilmiah remaja, yang membantu mengasah kemampuan saya dalam bekerja sama serta berpikir kritis.</p>
+                
+                <h3>2020 - 2023 : SMA Swasta 4 PSKD</h3>
+                <p2>Pada jenjang ini, saya memilih jurusan IPA. Pengalaman di SMA ini membuat saya semakin yakin untuk melanjutkan studi ke perguruan tinggi di bidang yang sesuai dengan minat dan bakat saya.</p2>
+
+                <h3>2023 - Sekarang : Universitas Pembangunan Jaya</h3>
+                <p3>Saat ini, saya sedang menempuh pendidikan tinggi di Universitas Pembangunan Jaya dengan program studi Sistem Informasi. Saya tertarik untuk mendalami lebih jauh tentang teknologi dan bisnis. Saya berharap ilmu yang saya pelajari di sini dapat bermanfaat dalam karier dan kehidupan sosial saya di masa depan.</p3>
+            </div>
+
+            <div class="inside_content1" id="pengalaman" style="display: none;">
+                <h2>Pengalaman</h2>
+                <p>Magang</p>
+            </div>
+            <div class="inside_content1" id="keahlian" style="display: none;">
+                <h2>Keahlian</h2>
+                <p>Informasi Keahlian</p>
+            </div>
+            <div class="inside_content1" id="publikasi" style="display: none;">
+                <h2>Publikasi</h2>
+                <p>Informasi Publikasi</p>
+            </div>
+        </section>
+
+        <aside class="aside_1" id="aside-content">
+            <h2>Hobi</h2>
+            <p>Berenang</p>
+            <p>Bola</p>
+            <p>Pemrograman</p>
+        </aside>
+
+    </main>
+
+    <aside class="aside_2" id="aside-content1">
+        <h2>Hobi</h2>
+        <p>Berenang</p>
+        <p>Bola</p>
+        <p>Pemrograman</p>
+    </aside>
+
+    <footer>
+        <div class="left">
+            <p>Twitter: @akun</p>
+            <p>FB: @akun</p>
+            <p>Instagram: @akun</p>
+        </div>
+        <div class="center">
+            <p>&copy; Copyright 2020. All Rights Reserved</p>
+        </div>
+        <div class="right">
+            <p>Web Keren</p>
+            <p>Slogan/Keterangan/Informasi Web</p>
+        </div>
+    </footer>
+
+    <script>
+        function showContent(contentId) {
+            const sections = document.querySelectorAll('section > div');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            document.getElementById(contentId).style.display = 'block';
+        }
+    </script>
+    
+<script>
+function showContent(contentId) {
+    const sections = document.querySelectorAll('section > div');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+    document.getElementById(contentId).style.display = 'block';
+    
+    // Update content of aside based on selected content
+    const asideContent = document.getElementById('aside-content');
+    switch (contentId) {
+        case 'biodata':
+            asideContent.innerHTML = '<h2>Hobi</h2><p>Berenang</p><p>Bola</p><p>Pemrograman</p>';
+            break;
+        case 'pendidikan':
+            asideContent.innerHTML = '<h2>Aktivitas Pendidikan</h2><p>Belajar pemrograman</p>';
+            break;
+        case 'pengalaman':
+            asideContent.innerHTML = '<h2>Pengalaman</h2><p>terlalu banyak</p>';
+            break;
+        // Tambahkan sesuai kebutuhan
+        default:
+            asideContent.innerHTML = '<h2>Informasi Tambahan</h2><p>Informasi lainnya...</p>';
+    }
+
+    const asideContent1 = document.getElementById('aside-content1');
+    switch (contentId) {
+        case 'biodata':
+            asideContent1.innerHTML = '<h2>Hobi</h2><p>Bulu tangkis</p><p>Bola</p><p>Pemrograman</p>';
+            break;
+        case 'pendidikan':
+            asideContent1.innerHTML = '<h2>Aktivitas Pendidikan</h2><p>Belajar pemrograman</p>';
+            break;
+        // Tambahkan sesuai kebutuhan
+        default:
+            asideContent1.innerHTML = '<h2>Informasi Tambahan</h2><p>Informasi lainnya...</p>';
+    }
+}
+</script>
+
+<script>
+  fetch('/api/users')
+.then(response => response.json())
+.then(data => {
+    const userList = document.getElementById('user-list');
+    userList.innerHTML = ''; // Kosongkan daftar pengguna sebelum menambah yang baru
+    data.forEach(user => {
+        const userItem = document.createElement('div');
+        userItem.innerHTML = `<p>${user.Nama} - ${user.Email}</p>`;
+        userList.appendChild(userItem);
+    });
+})
+.catch(error => console.error('Error:', error));
+
+</script>
+
+</body>
+</html>

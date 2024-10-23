@@ -1,0 +1,238 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+
+header, nav, section, aside, footer {
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+header {
+    background-color: #eee;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+}
+
+header img {
+    height: 60px; /* Sesuaikan ukuran gambar */
+    width: auto;
+    margin-right: 10px; /* Jarak antara gambar dan teks */
+}
+
+nav {
+    width: 25%;
+    background-color: #f4f4f4; /* Warna latar belakang */
+    border-right: 1px solid #ccc; /* Border kanan */
+    padding: 10px; /* Jarak dalam navbar */
+}
+
+nav ul {
+    list-style-type: none; /* Menghilangkan bullet pada list */
+    padding: 0; /* Menghilangkan padding */
+}
+
+nav ul li {
+    margin: 10px 0; /* Jarak antar item navbar */
+}
+
+nav ul li a {
+    text-decoration: none; /* Menghilangkan garis bawah pada link */
+    color: #333; /* Warna teks link */
+    font-weight: bold; /* Membuat teks lebih tebal */
+    padding: 8px 12px; /* Jarak dalam link */
+    display: block; /* Membuat seluruh area link bisa diklik */
+    border-radius: 4px; /* Membuat sudut link membulat */
+    transition: background-color 0.3s; /* Transisi untuk efek hover */
+}
+
+nav ul li a:hover {
+    background-color: #007bff; /* Warna latar belakang saat hover */
+    color: white; /* Warna teks saat hover */
+}
+
+main {
+    display: flex;
+    flex: 1;
+    flex-direction: row; /* Default untuk desktop */
+}
+
+section {
+    width: 50%;
+    padding: 20px;
+}
+
+aside {
+    width: 25%;
+    padding: 10px;
+}
+
+
+
+footer {
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+
+footer .left {
+    flex: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column; /* Menyusun elemen secara vertikal */
+}
+
+footer .center, footer .right {
+    flex: 1;
+    text-align: center;
+}
+
+footer .right {
+    text-align: right;
+}
+
+/* Media Queries */
+
+/* diatas 1024 */
+@media (min-width:1024px) {
+    main {
+        flex-direction: row;
+    }
+    nav {
+        width: 25%;
+    }
+    section {
+        width: 50%;
+    }
+    .new {
+        width: 25%;
+        margin-top: 0;
+
+    }
+    aside {
+        width: 25%;
+    }
+    a{
+        display: none;
+    }
+    .aside_2{
+        display: none;
+    }
+}
+
+/* dibawah 1024 */
+@media (max-width: 1024px) {
+    main {
+        flex-direction:row; /* Mengubah flex direction menjadi column untuk tablet landscape */
+    }
+    nav {
+        width: 25%;
+        height: auto; /* Sesuaikan tinggi */
+    }
+    section {
+        flex-direction:inherit;
+        width: 100%;
+    }
+    .aside_1 {
+        width: 100%; 
+        display: none !important;
+    }
+    aside {
+        width: 100%; /* Agar aside mengisi lebar penuh di bawah section */
+    }
+    a {
+        width: 100%;
+    }
+}
+
+
+/* dibawah 780px */
+@media (max-width: 780px) {
+    body {
+        display: grid;
+        grid-template-areas:
+            "header"
+            "nav"
+            "section"
+            "aside"
+            "footer";
+        grid-template-columns: 100%;
+        grid-gap: 10px;
+    }
+    
+    nav, section, aside, header, footer {
+        width: 100%; /* Elemen mengisi lebar penuh */
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    nav ul li {
+        margin-bottom: 5px; /* Mengurangi margin agar tidak terlalu jauh */
+    }
+    
+    nav ul li a {
+        padding: 8px 10px; /* Menyempitkan padding untuk link */
+    }
+
+    main {
+        flex-direction: column; /* Semua elemen bertumpuk */
+    }
+}
+
+/* dibawah 480 */
+@media (max-width: 480px) {
+    .content_1 {
+        height: auto; /* Mengatur tinggi otomatis agar sesuai konten */
+    }
+
+    nav, section, aside, header {
+        width: 100%; /* Semua elemen mengambil lebar penuh */
+        padding: 10px; /* Memberikan jarak di dalam elemen */
+    }
+
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header img {
+        height: 50px; /* Sesuaikan ukuran gambar agar tidak terlalu besar */
+        margin-bottom: 10px; /* Memberikan jarak dengan elemen di bawahnya */
+    }
+
+    main {
+        flex-direction: column; /* Semua elemen bertumpuk */
+    }
+
+    nav ul {
+        display: block;
+        text-align: center; /* Memusatkan teks dalam navigasi */
+    }
+
+    nav ul li {
+        margin-bottom: 5px; /* Menambah jarak antar item di navbar */
+    }
+
+    section, aside {
+        margin-top: 10px; /* Memberikan jarak antar elemen agar tidak menempel */
+    }
+}
